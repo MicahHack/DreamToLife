@@ -1,0 +1,22 @@
+:host {
+  .intro {
+    background-image: linear-gradient(rgba(46, 157, 255, 0.5), rgba(46, 157, 255, 0.2)), url("/assets/IntroBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 75%;
+    border-color: rgb(46, 157, 255);
+    overflow: hidden !important;
+  }
+
+  .subheading {
+    color: #2e9dff !important;
+    font-size: 25px !important;
+  }
+
+  @media only screen and (min-width: 900px) {
+      .intro {
+          height: 600px !important;
+      }
+  }
+}
