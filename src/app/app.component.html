@@ -1,7 +1,40 @@
 <app-titlebar></app-titlebar>
-<div class="intro h-24rem grid grid-nogutter justify-content-center align-items-center mb-3 border-bottom-3">
+
+<!-- Intro -->
+<div class="intro grid grid-nogutter h-24rem justify-content-center align-items-center mb-5 border-bottom-3">
   <div  class="col-12 text-center">
     <h1 class="text-white m-0">THIS IS DREAM TO LIFE</h1>
     <h2 class="subheading mt-1">A BUSINESS THAT PRIORITIZES YOURS</h2>
   </div>
+</div>
+
+<!-- What we do -->
+<div class="grid grid-nogutter h-full justify-content-center align-items-center mt-5 mb-5 pt-5">
+    <div class="col-12 flex justify-content-center align-items-center mb-5">
+        <h2>WHAT WE DO</h2>
+    </div>
+    <div class="col-12 flex justify-content-center align-items-center flex-wrap">
+        <div *ngFor="let item of cards">
+            <app-card [icon]="item.icon" [header]="item.header" [text]="item.text"></app-card>
+        </div>
+    </div>
+</div>
+
+<!-- Services -->
+<div style="background-color: #192024" class="grid grid-nogutter h-full justify-content-center align-items-start pt-5">
+    <div class="col-12 flex justify-content-center align-items-center mt-4 mb-5">
+        <h2 class="text-white">SERVICES</h2>
+    </div>
+    <div class="col-12 w-full flex flex-column lg:flex-row justify-content-center align-items-center mb-5">
+        <div class="flex flex-column h-full w-full md:h-30rem lg:w-6 justify-content-start align-items-center mb-5 lg:mb-0 text-center">
+            <img src="/assets/Services_GraphicDesign.jpg" class="h-10rem w-16rem md:h-20rem md:w-28rem" />
+            <h3 class="text-white mb-1">GRAPHIC DESIGN</h3>
+            <p class="text-white pl-3 pr-3 md:pl-5 md:pr-5">Whether you need flyers, websites, or mobile applications designed from scratch or simply need a few changes made to existing items, our team can make it happen.</p>
+        </div>
+        <div class="flex flex-column h-full md:h-30rem w-full lg:w-6 justify-content-start align-items-center mt-5 lg:mt-0 mb-5 sm:mb-0 text-center">
+            <img src="/assets/Services_Development.jpg" class="h-10rem w-16rem md:h-20rem md:w-28rem" />
+            <h3 class="text-white mb-1">DEVELOPMENT</h3>
+            <p class="text-white pl-3 pr-3 md:pl-5 md:pr-5">Let our team take your design further, and build the project for you using the best and latest tools available. We'll take it a step further too, and assist in the hosting and managing of the project.</p>
+        </div>
+    </div>
 </div>
