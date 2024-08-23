@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-titlebar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './titlebar.component.html',
   styleUrl: './titlebar.component.scss'
 })

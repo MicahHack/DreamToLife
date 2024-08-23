@@ -1,0 +1,11 @@
+:host {
+  .bgcolor {
+    background-color: #edeff2;
+
+    @media only screen and (min-width: 510px) {
+      p {
+        width: 500px !important;
+      }
+    }
+  }
+}

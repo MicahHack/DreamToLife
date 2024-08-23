@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TitlebarComponent } from './Components/titlebar/titlebar.component';
 import { CardComponent } from './Components/card/card.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, TitlebarComponent, CardComponent],
+  imports: [CommonModule, TitlebarComponent, CardComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
