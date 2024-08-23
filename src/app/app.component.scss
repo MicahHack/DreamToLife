@@ -14,9 +14,62 @@
     font-size: 25px !important;
   }
 
+  .iconbg {
+    background-color: #69b9ff !important;
+  }
+
+  .buttonstyle {
+    //#69b9ff
+    border: 1px rgb(46, 157, 255) solid !important;
+    background-color: transparent !important;
+    color: rgb(46, 157, 255) !important;
+  }
+
+  .buttonstyle:hover {
+    color: white !important;
+    background-color: rgb(46, 157, 255) !important;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  .fadeInItem {
+    animation: 1s fadeIn forwards;
+  }
+
+  .fadeOutItem {
+    animation: 1s fadeOut forwards;
+  }
+
+  input {
+    height: 22px !important;
+    width: 160px !important;
+  }
+  textarea {
+    height: 50px !important;
+    width: 160px !important;
+  }
+
   @media only screen and (min-width: 900px) {
-      .intro {
-          height: 630px !important;
-      }
+    .intro {
+      height: 630px !important;
+    }
   }
 }

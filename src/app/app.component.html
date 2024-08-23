@@ -1,3 +1,4 @@
+<!-- Titlebar -->
 <app-titlebar></app-titlebar>
 
 <!-- Intro -->
@@ -40,7 +41,72 @@
 </div>
 
 <!-- Contact Us -->
-
+<div class="grid grid-nogutter h-full justify-content-center align-items-start mt-5 mb-5 pt-5">
+    <div class="col-12 text-center">
+        <h2>CONTACT US</h2>
+    </div>
+    <div class="col-12 flex flex-column justify-content-center align-items-center mt-5 mb-5">
+        <!-- Contact Page 1 -->
+        <div *ngIf="this.contactPage" style="border-color: silver;" class="flex flex-column h-20rem w-18rem justify-content-start align-items-center border-solid border-1 border-round-sm">
+            <div class="fadeInItem text-center">
+                <h3>REACH US</h3>
+                <div class="flex flex-column w-full">
+                    <div class="flex flex-row w-full justify-content-center align-items-center">
+                        <div class="flex flex-column text-white">
+                            <div class="flex iconbg border-circle h-2rem w-2rem justify-content-center align-items-center mb-2">
+                                <i class="bi bi-envelope-at"></i>
+                            </div>
+                            <div class="flex iconbg border-circle h-2rem w-2rem justify-content-center align-items-center mb-2">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-column">
+                            <div class="flex h-2rem ml-3 mb-2 align-items-center">
+                                <p class="m-0">Micah.Hack.18{{ this.at }}gmail.com</p>
+                            </div>
+                            <div class="flex h-2rem ml-3 mb-2 align-items-center">
+                                <p class="m-0">+27 72 249 0648</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Let us get back to you -->
+                <hr style="color: silver;" class="w-9 mt-5" />
+                <div class="flex flex-column justify-content-center align-items-center">
+                    <h3>LEAVE A MESSAGE</h3>
+                    <button style="height: 25px; cursor: pointer" class="fadeInItem buttonstyle flex flex-column w-3rem justify-content-center align-items-center border-round-md bi bi-arrow-right text-white" (click)="this.ChangeContactsPage()"></button>
+                </div>
+            </div>
+            </div>
+            <!-- Contact Page 2 -->
+            <div *ngIf="!this.contactPage" style="border-color: silver;" class="flex flex-column h-30rem w-18rem justify-content-start align-items-center border-solid border-1 border-round-sm">
+                <div class="fadeInItem text-center">
+                    <h3>LEAVE A MESSAGE</h3>
+                    <div class="flex flex-column w-full justify-content-center align-items-center">
+                        <div class="flex flex-column justify-content-center align-items-start mb-3">
+                            <p class="m-0 mb-1">Full Name <span style="color: red !important;">*</span></p>
+                            <input [(ngModel)]="this.fullname" />
+                        </div>
+                        <div class="flex flex-column justify-content-center align-items-start mb-3">
+                            <p class="m-0 mb-1">Email <span style="color: red !important;">*</span></p>
+                            <input [(ngModel)]="this.emailAddress" />
+                        </div>
+                        <div class="flex flex-column justify-content-center align-items-start mb-3">
+                            <p class="m-0 mb-1">Message <span style="color: red !important;">*</span></p>
+                            <textarea [(ngModel)]="this.contactMessage" (resize)=false></textarea>
+                        </div>
+                        <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-5rem justify-content-center align-items-center border-round-md text-white" (click)="this.SendEmail()">SUBMIT</button>
+                    </div>
+                    <!-- Let us get back to you -->
+                    <hr style="color: silver;" class="w-9 mt-5" />
+                    <div class="flex flex-column justify-content-center align-items-center">
+                        <h3>REACH US</h3>
+                        <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-3rem justify-content-center align-items-center border-round-md bi bi-arrow-left text-white" (click)="this.ChangeContactsPage()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 
 <!-- Footer -->
 <app-footer></app-footer>
