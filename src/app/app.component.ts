@@ -5,15 +5,22 @@ import { CardComponent } from './Components/card/card.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
+import { EmailService } from './Services/email.service';
+import { HttpService } from './Services/http.service';
+import { ContactData } from './Models/contact-data';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonModule, TitlebarComponent, CardComponent, FooterComponent],
+  imports: [CommonModule, HttpClientModule, FormsModule, ButtonModule, TitlebarComponent, CardComponent, FooterComponent],
+  providers: [EmailService, HttpService, ToastrService ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  submittingFormData: boolean = false;
   fullname: string = "";
   emailAddress: string = "";
   contactMessage: string = "";
@@ -26,11 +33,57 @@ export class AppComponent {
     { icon: "bi-chat", header: "COLLABORATION", text: "We strongly believe in clear, consistent communication to bring your dream to life, as you imagine it." },
   ]
 
+  constructor(private _emailService: EmailService, private toastr: ToastrService) {
+
+  }
+
   public async ChangeContactsPage() {
     this.contactPage = !this.contactPage;
   }
 
   public async SendEmail() {
-    if (fullname.)
+    this.submittingFormData = true;
+    if (this.fullname.length > 0 && this.emailAddress.length > 0 && this.contactMessage.length > 0) {
+      let submissionData: ContactData = {
+        Fullname: this.fullname,
+        Email: this.emailAddress,
+        Message: this.contactMessage
+      }
+      let result = await this._emailService.SendContactEmail(submissionData);
+      if (result === "Success") {
+        this.toastr.success('Message Sent!', '', {
+          timeOut: 3000,
+        });
+        this.submittingFormData = false;
+        this.ClearForm();
+      }
+      else {
+        if (result === "Validation Error") {
+          this.toastr.error('Please ensure the email field is an email!', 'Failed', {
+            timeOut: 3000,
+          });
+          this.submittingFormData = false;
+        }
+        else {
+          this.toastr.error('Please try again!', 'Failed', {
+            timeOut: 3000,
+          });
+          this.submittingFormData = false;
+          this.ClearForm();
+        }
+      }
+    }
+    else {
+      this.toastr.info('Please fill all fields', '', {
+        timeOut: 3000,
+      });
+      this.submittingFormData = false;
+    }
+  }
+
+  private async ClearForm(): Promise<void> {
+    this.fullname = "";
+    this.emailAddress = "";
+    this.contactMessage = "";
   }
 }

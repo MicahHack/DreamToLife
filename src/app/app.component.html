@@ -79,7 +79,7 @@
             </div>
             </div>
             <!-- Contact Page 2 -->
-            <div *ngIf="!this.contactPage" style="border-color: silver;" class="flex flex-column h-30rem w-18rem justify-content-start align-items-center border-solid border-1 border-round-sm">
+            <div *ngIf="!this.contactPage" style="border-color: silver;" class="flex flex-column h-30rem w-18rem lg:w-28rem justify-content-start align-items-center border-solid border-1 border-round-sm">
                 <div class="fadeInItem text-center">
                     <h3>LEAVE A MESSAGE</h3>
                     <div class="flex flex-column w-full justify-content-center align-items-center">
@@ -89,13 +89,13 @@
                         </div>
                         <div class="flex flex-column justify-content-center align-items-start mb-3">
                             <p class="m-0 mb-1">Email <span style="color: red !important;">*</span></p>
-                            <input [(ngModel)]="this.emailAddress" />
+                            <input [(ngModel)]="this.emailAddress" type="email" />
                         </div>
                         <div class="flex flex-column justify-content-center align-items-start mb-3">
                             <p class="m-0 mb-1">Message <span style="color: red !important;">*</span></p>
                             <textarea [(ngModel)]="this.contactMessage" (resize)=false></textarea>
                         </div>
-                        <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-5rem justify-content-center align-items-center border-round-md text-white" (click)="this.SendEmail()">SUBMIT</button>
+                        <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-5rem justify-content-center align-items-center border-round-md text-white" (click)="this.SendEmail()" [disabled]="this.submittingFormData">SUBMIT</button>
                     </div>
                     <!-- Let us get back to you -->
                     <hr style="color: silver;" class="w-9 mt-5" />

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpService {
   constructor(private _http: HttpClient) { }
@@ -13,7 +13,6 @@ export class HttpService {
       params: paramaters,
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Cache-control': 'none',
       }),
       observe: "response",
       responseType: "json"
