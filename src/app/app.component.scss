@@ -50,6 +50,30 @@
     }
   }
 
+  @keyframes fadeInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes fadeInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
   .fadeInItem {
     animation: 1s fadeIn forwards;
   }
@@ -58,10 +82,19 @@
     animation: 1s fadeOut forwards;
   }
 
+  .fadeInFromLeftItem {
+    animation: 1s fadeInFromLeft forwards;
+  }
+
+  .fadeInFromRightItem {
+    animation: 1s fadeInFromRight forwards;
+  }
+
   input {
     height: 22px !important;
     width: 160px !important;
   }
+
   textarea {
     height: 50px !important;
     width: 160px !important;
