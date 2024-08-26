@@ -79,32 +79,36 @@
             </div>
             </div>
             <!-- Contact Page 2 -->
-            <div *ngIf="!this.contactPage" style="border-color: silver;" class="flex flex-column h-30rem w-18rem lg:w-28rem justify-content-start align-items-center border-solid border-1 border-round-sm">
-                <div class="fadeInItem text-center">
-                    <h3>LEAVE A MESSAGE</h3>
-                    <div class="flex flex-column w-full justify-content-center align-items-center">
-                        <div class="flex flex-column justify-content-center align-items-start mb-3">
-                            <p class="m-0 mb-1">Full Name <span style="color: red !important;">*</span></p>
-                            <input [(ngModel)]="this.fullname" />
-                        </div>
-                        <div class="flex flex-column justify-content-center align-items-start mb-3">
-                            <p class="m-0 mb-1">Email <span style="color: red !important;">*</span></p>
-                            <input [(ngModel)]="this.emailAddress" type="email" />
-                        </div>
-                        <div class="flex flex-column justify-content-center align-items-start mb-3">
-                            <p class="m-0 mb-1">Message <span style="color: red !important;">*</span></p>
-                            <textarea [(ngModel)]="this.contactMessage" (resize)=false></textarea>
-                        </div>
-                        <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-5rem justify-content-center align-items-center border-round-md text-white" (click)="this.SendEmail()" [disabled]="this.submittingFormData">SUBMIT</button>
+        <div *ngIf="!this.contactPage" style="border-color: silver;" [ngClass]="{'h35rem': isSubmitted}" class="flex flex-column h33rem w-18rem lg:w-28rem justify-content-start align-items-center border-solid border-1 border-round-sm">
+            <div class="fadeInItem text-center">
+                <h3>LEAVE A MESSAGE</h3>
+                <div class="flex flex-column w-full justify-content-center align-items-center">
+                    <div class="flex flex-column justify-content-center align-items-start mb-3">
+                        <p class="m-0 mb-1">Full Name <span style="color: red !important;">*</span></p>
+                        <input [(ngModel)]="this.fullname" />
                     </div>
-                    <!-- Let us get back to you -->
-                    <hr style="color: silver;" class="w-9 mt-5" />
-                    <div class="flex flex-column justify-content-center align-items-center">
-                        <h3>REACH US</h3>
-                        <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-3rem justify-content-center align-items-center border-round-md bi bi-arrow-left text-white" (click)="this.ChangeContactsPage()"></button>
+                    <div class="flex flex-column justify-content-center align-items-start mb-3">
+                        <p class="m-0 mb-1">Email <span style="color: red !important;">*</span></p>
+                        <input [(ngModel)]="this.emailAddress" type="email" />
+                    </div>
+                    <div class="flex flex-column justify-content-center align-items-start mb-3">
+                        <p class="m-0 mb-1">Message <span style="color: red !important;">*</span></p>
+                        <textarea [(ngModel)]="this.contactMessage" (resize)=false></textarea>
+                    </div>
+                    <button style="height: 25px; cursor: pointer" [ngClass]="{'buttonstyle': !submittingFormData, 'buttonstyleDisabled': submittingFormData}" class="flex flex-column w-5rem justify-content-center align-items-center border-round-md text-white" (click)="this.SendEmail()" [disabled]="this.submittingFormData">SUBMIT</button>
+                    <div *ngIf="this.isSubmitted" class="flex flex-row justify-content-center align-items-center">
+                        <i class="fontgreen bi bi-check-circle"></i>
+                        <p class="fontgreen ml-2">Message sent!</p>
                     </div>
                 </div>
+                <!-- Let us get back to you -->
+                <hr style="color: silver;" class="w-9 mt-5" />
+                <div class="flex flex-column justify-content-center align-items-center">
+                    <h3>REACH US</h3>
+                    <button style="height: 25px; cursor: pointer" class="buttonstyle flex flex-column w-3rem justify-content-center align-items-center border-round-md bi bi-arrow-left text-white" (click)="this.ChangeContactsPage()"></button>
+                </div>
             </div>
+        </div>
         </div>
 </div>
 

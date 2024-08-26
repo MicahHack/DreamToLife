@@ -30,6 +30,11 @@
     background-color: rgb(46, 157, 255) !important;
   }
 
+  .buttonstyleDisabled {
+      border-color: gray !important;
+      color: gray !important;
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -96,8 +101,20 @@
   }
 
   textarea {
-    height: 50px !important;
+    height: 80px !important;
     width: 160px !important;
+  }
+
+  .h33rem {
+    height: 33rem !important;
+  }
+
+  .h35rem {
+    height: 35rem !important;
+  }
+
+  .fontgreen {
+      color: green !important;
   }
 
   @media only screen and (min-width: 900px) {

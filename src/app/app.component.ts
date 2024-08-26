@@ -21,6 +21,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent {
   submittingFormData: boolean = false;
+  isSubmitted: boolean = false;
   fullname: string = "";
   emailAddress: string = "";
   contactMessage: string = "";
@@ -55,7 +56,8 @@ export class AppComponent {
           timeOut: 3000,
         });
         this.submittingFormData = false;
-        this.ClearForm();
+        this.isSubmitted = true;
+        await this.ClearForm();
       }
       else {
         if (result === "Validation Error") {
